@@ -1,0 +1,9 @@
+# Copy this file to application-local.properties (ignored by Git).
+# Or configure OPENAI_API_KEY / CHRONOS_URL environment variables instead.
+app.ai.openai-key=
+app.ai.openai-model=gpt-5.4-mini
+app.ai.chronos-url=http://127.0.0.1:8001
+app.ai.timeout-seconds=120
+# First Chronos request downloads/loads weights and can take longer.
+# Optional: set the same CHRONOS_API_TOKEN in the Python process.
+app.ai.chronos-token=

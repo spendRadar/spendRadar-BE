@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["intent", "month", "categories", "budget", "purchasePrice", "availableBalance", "clarificationQuestion"],
+  "properties": {
+    "intent": {"type": "string", "enum": ["FORECAST_EXPENSES", "BUDGET_CHECK", "PURCHASE_CHECK", "CLARIFY"]},
+    "month": {"type": ["string", "null"]},
+    "categories": {"type": "array", "items": {"type": "string", "enum": ["FOOD", "TRANSPORT", "SHOPPING", "HOUSING", "HEALTH", "LEISURE", "SALARY", "OTHER"]}},
+    "budget": {"type": ["integer", "null"]},
+    "purchasePrice": {"type": ["integer", "null"]},
+    "availableBalance": {"type": ["integer", "null"]},
+    "clarificationQuestion": {"type": ["string", "null"]}
+  }
+}

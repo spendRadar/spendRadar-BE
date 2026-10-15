@@ -1,0 +1,50 @@
+# VS Code REST Client examples. Never put API keys in this file.
+@baseUrl = http://localhost:8080
+@month = 2026-10
+
+### Actual monthly summary
+GET {{baseUrl}}/api/ledgers/summary?month={{month}}
+
+### Actual transactions
+GET {{baseUrl}}/api/ledgers?month={{month}}
+
+### Create an actual expense (writes to the active DB)
+POST {{baseUrl}}/api/ledgers
+Content-Type: application/json
+
+{
+  "date": "2026-10-15",
+  "amount": 12000,
+  "category": "FOOD",
+  "type": "EXPENSE",
+  "expenseKind": "VARIABLE",
+  "description": "점심"
+}
+
+### Recurring income settings
+GET {{baseUrl}}/api/recurring-incomes
+
+### Fixed expense settings
+GET {{baseUrl}}/api/fixed-expenses
+
+### Monthly forecast (synthetic DB, Python required)
+POST {{baseUrl}}/api/forecasts/monthly
+Content-Type: application/json
+
+{
+  "month": "{{month}}",
+  "historyStart": "2023-10-15",
+  "historyComplete": true,
+  "categories": ["FOOD", "SHOPPING"]
+}
+
+### Chat (synthetic DB, Python and paid OpenAI API required)
+POST {{baseUrl}}/api/chat
+Content-Type: application/json
+
+{
+  "message": "이번 달 식비 예산 70만원으로 충분할까?",
+  "history": [],
+  "historyStart": "2023-10-15",
+  "historyComplete": true
+}

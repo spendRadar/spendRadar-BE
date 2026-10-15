@@ -1,0 +1,5 @@
+# Contract tests mock the model; they do not download weights or call paid APIs.
+fastapi==0.143.0
+pandas==2.3.3
+pytest==9.1.1
+httpx==0.28.1
